@@ -152,7 +152,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'DNS',
-    meta: { title: '外部资产', icon: 'third' },
+    meta: { title: '三方资产', icon: 'third' },
     children: [
       {
         path: 'table',
@@ -187,7 +187,7 @@ export const constantRoutes = [
     name: 'Nested',
     meta: {
       title: '中间件',
-      icon: 'nested'
+      icon: 'middleware'
     },
     children: [
       {
@@ -253,25 +253,62 @@ export const constantRoutes = [
             meta: { title: 'Menu1-2-2' }
           }
         ]
+      }
+    ]
+  },
+
+  {
+    path: '/virtualization',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Virtualization',
+    meta: { title: '虚拟化', icon: 'virtual' },
+    children: [
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: '作业历史', icon: 'task' }
       },
       {
-        path: 'menu4',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'K8s', icon: 'k8s' },
-        children: [
-          {
-            path: 'menu1-2-1',
-            component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-            name: 'Menu1-2-1',
-            meta: { title: 'Menu1-2-1' }
-          },
-          {
-            path: 'menu1-2-2',
-            component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-            name: 'Menu1-2-2',
-            meta: { title: 'Menu1-2-2' }
-          }
-        ]
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '运维场景', icon: 'job' }
+      },
+      {
+        path: 'cron',
+        name: 'cron',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '定时任务', icon: 'cron' }
+      }
+    ]
+  },
+
+  {
+    path: '/container',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Container',
+    meta: { title: '容器平台', icon: 'docker' },
+    children: [
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: '作业历史', icon: 'task' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '运维场景', icon: 'job' }
+      },
+      {
+        path: 'cron',
+        name: 'cron',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '定时任务', icon: 'cron' }
       }
     ]
   },
@@ -338,7 +375,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        meta: { title: '操作文档', icon: 'link' }
       }
     ]
   },

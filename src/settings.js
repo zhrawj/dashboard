@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '智能运维中台',
+  title: '基础设施服务中台',
 
   /**
    * @type {boolean} true | false
