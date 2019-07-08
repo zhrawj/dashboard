@@ -42,7 +42,7 @@ export const constantRoutes = [
       }
     ]
   },
-  
+
   {
     path: '/login',
     component: () => import('@/views/login/index'),
@@ -194,7 +194,7 @@ export const constantRoutes = [
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
-        meta: { title: 'MySQL', icon: 'mysql'},
+        meta: { title: 'MySQL', icon: 'mysql' },
         children: [
           {
             path: 'menu1-1',
@@ -206,7 +206,7 @@ export const constantRoutes = [
             path: 'menu1-2',
             component: () => import('@/views/nested/menu1/menu1-2'),
             name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
+            meta: { title: 'Menu1-2' }
           },
           {
             path: 'menu1-3',
@@ -219,7 +219,7 @@ export const constantRoutes = [
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'Redis', icon: 'redis'},
+        meta: { title: 'Redis', icon: 'redis' },
         children: [
           {
             path: 'menu1-2-1',
@@ -238,7 +238,7 @@ export const constantRoutes = [
       {
         path: 'menu3',
         component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'MongoDB', icon: 'mongodb'},
+        meta: { title: 'MongoDB', icon: 'mongodb' },
         children: [
           {
             path: 'menu1-2-1',
@@ -257,7 +257,7 @@ export const constantRoutes = [
       {
         path: 'menu4',
         component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'K8s', icon: 'k8s'},
+        meta: { title: 'K8s', icon: 'k8s' },
         children: [
           {
             path: 'menu1-2-1',
