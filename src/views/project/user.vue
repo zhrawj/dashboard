@@ -26,19 +26,23 @@
     </div>
 
     <el-table
+      ref="multipleTable"
       :key="tableKey"
       v-loading="listLoading"
       :data="list"
       border
       fit
+      stripe
       highlight-current-row
       style="width: 100%;"
+      tooltip-effect="dark"
       @sort-change="sortChange"
+      @selection-change="handleSelectionChange"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" align="center" width="80">
-        <template slot-scope="scope">
+      <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80">
+        <!-- <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
-        </template>
+        </template> -->
       </el-table-column>
       <el-table-column label="Date" width="150px" align="center">
         <template slot-scope="scope">
@@ -258,6 +262,9 @@ export default {
       if (prop === 'id') {
         this.sortByID(order)
       }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val
     },
     sortByID(order) {
       if (order === 'ascending') {
