@@ -103,7 +103,7 @@ export default {
     width: 100%;
     line-height: 1.5;
     // display: block;
-    background-color: #f8f8f8;
+    background-color: rgb(240, 242, 245);
     text-align: left;
     height: 45px;
   }
