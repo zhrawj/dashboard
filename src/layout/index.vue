@@ -2,9 +2,13 @@
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
-    <div class="main-container">
+    <div :class="{'hasTagsView':needTagsView}" class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
+        <!-- <div id="cf" class="boardc">
+          <breadcrumb id="breadcrumb-container" />
+        </div> -->
+        <!-- <tags-view v-if="needTagsView" /> -->
       </div>
       <app-main />
     </div>
@@ -12,8 +16,8 @@
 </template>
 
 <script>
-// import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Sidebar } from './components'
+// import Breadcrumb from '@/components/Breadcrumb'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
@@ -22,8 +26,7 @@ export default {
   components: {
     AppMain,
     Navbar,
-    // RightPanel,
-    // Settings,
+    // Breadcrumb,
     Sidebar
   },
   mixins: [ResizeMixin],
@@ -32,7 +35,8 @@ export default {
       sidebar: state => state.app.sidebar,
       device: state => state.app.device,
       showSettings: state => state.settings.showSettings,
-      fixedHeader: state => state.settings.fixedHeader
+      fixedHeader: state => state.settings.fixedHeader,
+      needTagsView: state => false
     }),
     classObj() {
       return {
@@ -90,5 +94,17 @@ export default {
 
   .mobile .fixed-header {
     width: 100%;
+  }
+
+  .boardc {
+    z-index: 1;
+    font-family: Helvetica, Arial;
+    font-size: 13px;
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 1.5;
+    // display: block;
+    background-color: #f8f8f8;
+    text-align: left;
   }
 </style>
