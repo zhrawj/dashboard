@@ -5,10 +5,9 @@
     <div :class="{'hasTagsView':needTagsView}" class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
-        <!-- <div id="cf" class="boardc">
+        <div id="cf" class="boardc">
           <breadcrumb id="breadcrumb-container" />
-        </div> -->
-        <!-- <tags-view v-if="needTagsView" /> -->
+        </div>
       </div>
       <app-main />
     </div>
@@ -17,7 +16,7 @@
 
 <script>
 import { AppMain, Navbar, Sidebar } from './components'
-// import Breadcrumb from '@/components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
@@ -26,7 +25,7 @@ export default {
   components: {
     AppMain,
     Navbar,
-    // Breadcrumb,
+    Breadcrumb,
     Sidebar
   },
   mixins: [ResizeMixin],
@@ -106,5 +105,6 @@ export default {
     // display: block;
     background-color: #f8f8f8;
     text-align: left;
+    height: 45px;
   }
 </style>
