@@ -2,7 +2,7 @@
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+    <!-- <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
@@ -22,7 +22,6 @@
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar">
           <span class="user-name">紫川秀</span>
-          <!-- <i class="el-icon-caret-bottom" /> -->
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/profile/index">
@@ -48,7 +47,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
+// import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
@@ -57,7 +56,7 @@ import Search from '@/components/HeaderSearch'
 
 export default {
   components: {
-    Breadcrumb,
+    // Breadcrumb,
     Hamburger,
     ErrorLog,
     Screenfull,
