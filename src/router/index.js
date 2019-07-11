@@ -344,14 +344,14 @@ export const constantRoutes = [
   {
     path: '/system-manage',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/system-manage/component',
     name: 'Example',
     meta: { title: '系统管理', icon: 'setting' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
+        path: 'component',
+        name: 'Component',
+        component: () => import('@/views/system/component'),
         meta: { title: '组件管理', icon: 'api ' }
       },
       {
