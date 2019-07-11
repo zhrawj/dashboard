@@ -43,22 +43,22 @@
           @selection-change="handleSelectionChange"
         >
           <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80" />
-          <el-table-column label="名称" width="110px" align="center">
+          <el-table-column label="名称" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="负责人" width="150px" align="center">
+          <el-table-column label="负责人" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="技术栈" width="110px" align="center">
+          <el-table-column label="技术栈" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="关联项目" width="110px" align="center">
+          <el-table-column label="关联项目" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>

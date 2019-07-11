@@ -43,27 +43,27 @@
           @selection-change="handleSelectionChange"
         >
           <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80" />
-          <el-table-column label="姓名" width="150px" align="center">
+          <el-table-column label="姓名" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="邮箱" width="250px" align="center">
+          <el-table-column label="邮箱" min-width="250px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="部门" width="150px" align="center">
+          <el-table-column label="部门" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="角色" width="150px" align="center">
+          <el-table-column label="角色" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="来源" width="150px" align="center">
+          <el-table-column label="来源" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
@@ -73,7 +73,7 @@
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="项目" width="300px" align="center">
+          <el-table-column label="项目" min-width="300px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
