@@ -10,12 +10,16 @@
         </div>
       </div>
       <app-main />
+      <right-panel v-if="showSettings">
+        <settings />
+      </right-panel>
     </div>
   </div>
 </template>
 
 <script>
-import { AppMain, Navbar, Sidebar } from './components'
+import RightPanel from '@/components/RightPanel'
+import { AppMain, Navbar, Settings, Sidebar } from './components'
 import Breadcrumb from '@/components/Breadcrumb'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
@@ -25,6 +29,8 @@ export default {
   components: {
     AppMain,
     Navbar,
+    RightPanel,
+    Settings,
     Breadcrumb,
     Sidebar
   },
@@ -107,4 +113,5 @@ export default {
     text-align: left;
     height: 45px;
   }
+
 </style>
