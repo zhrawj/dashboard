@@ -68,9 +68,9 @@ export const constantRoutes = [
   },
 
   {
-    path: '/example',
+    path: '/project',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/project/project',
     name: 'ProjectManage',
     meta: { title: '项目管理', icon: 'tree-table' },
     children: [
@@ -98,19 +98,19 @@ export const constantRoutes = [
   {
     path: '/assets',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/assets/device',
     name: 'Asset',
     meta: { title: '资产管理', icon: 'assets' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
+        path: 'model',
+        name: 'Model',
         component: () => import('@/views/asset/model'),
         meta: { title: '模型列表', icon: 'cubes' }
       },
       {
-        path: 'ecs',
-        name: 'Tree',
+        path: 'device',
+        name: 'Device',
         component: () => import('@/views/tree/index'),
         meta: { title: '设备列表', icon: 'server' }
       },

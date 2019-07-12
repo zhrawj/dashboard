@@ -2,9 +2,6 @@
   <div class="app-container">
     <el-row>
       <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>用户列表</span>
-        </div>
         <div class="filter-container fl">
           <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-plus" @click="handleCreate">
             新建
