@@ -46,16 +46,15 @@
           :key="tableKey"
           v-loading="listLoading"
           :data="list"
-          border
           fit
-          stripe
           highlight-current-row
           style="width: 100%;"
           tooltip-effect="dark"
+          :header-cell-style="{background:'#f5f7fa'}"
           @sort-change="sortChange"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80" />
+          <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="55" />
           <el-table-column label="姓名" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
@@ -395,7 +394,10 @@ export default {
   padding: 30px;
   min-height: calc(100vh - 84px);
 }
-.component-item{
+.component-item {
   min-height: 100px;
+}
+.table-header {
+  background: #f5f7fa
 }
 </style>

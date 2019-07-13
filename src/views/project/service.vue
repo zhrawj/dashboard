@@ -46,9 +46,8 @@
           :key="tableKey"
           v-loading="listLoading"
           :data="list"
-          border
+          :header-cell-style="{background:'#f5f7fa'}"
           fit
-          stripe
           highlight-current-row
           style="width: 100%;"
           tooltip-effect="dark"

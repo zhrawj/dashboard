@@ -42,7 +42,7 @@
 
     <el-row :gutter="20" style="margin-top:50px;">
       <el-col :span="6">
-        <el-card class="box-card">
+        <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <span>Material Design 的input</span>
           </div>
@@ -59,7 +59,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card class="box-card">
+        <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <span>图片hover效果</span>
           </div>
@@ -70,7 +70,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card class="box-card">
+        <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <span>水波纹 waves v-directive</span>
           </div>
@@ -81,7 +81,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card class="box-card">
+        <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <span>hover text</span>
           </div>
