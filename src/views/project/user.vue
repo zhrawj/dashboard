@@ -2,6 +2,29 @@
   <div class="app-container">
     <el-row>
       <el-card class="box-card">
+        <div class="search-radius filter-container" style="border-radius: 4px;">
+          <el-row type="flex" class="search-row" justify="space-between">
+            <el-col :span="6">
+              <el-input v-model="listQuery.title" placeholder="名称" style="width: 150px; margi" class="filter-item" @keyup.enter.native="handleFilter" />
+            </el-col>
+            <el-col :span="6">
+              <el-select v-model="listQuery.type" placeholder="项目" clearable class="filter-item" style="width: 150px">
+                <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
+              </el-select>
+            </el-col>
+            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
+          </el-row>
+          <el-row type="flex" class="search-row" justify="space-between">
+            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple-light" /></el-col>
+            <el-col :span="6">
+              <el-button v-waves class="filter-item fr" type="primary" icon="el-icon-search" @click="handleFilter">
+                搜索
+              </el-button>
+            </el-col>
+          </el-row>
+        </div>
+
         <div class="filter-container fl">
           <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-plus" @click="handleCreate">
             新建
@@ -9,20 +32,13 @@
           <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-delete" @click="handleCreate">
             删除
           </el-button>
-          <el-button v-waves :loading="downloadLoading" class="filter-item" type="info" icon="el-icon-upload2" @click="handleDownload">
+        </div>
+        <div class="filter-container fr" style="margin-right: 15px;">
+          <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-upload2" @click="handleDownload">
             导入
           </el-button>
           <el-button v-waves :loading="downloadLoading" class="filter-item" type="info" icon="el-icon-download" @click="handleDownload">
             导出
-          </el-button>
-        </div>
-        <div class="filter-container fr">
-          <el-input v-model="listQuery.title" placeholder="名称" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-select v-model="listQuery.type" placeholder="项目" clearable class="filter-item" style="width: 130px">
-            <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-          </el-select>
-          <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-            搜索
           </el-button>
         </div>
         <el-table

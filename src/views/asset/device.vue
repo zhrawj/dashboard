@@ -61,25 +61,34 @@
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="负责人" min-width="150px" align="center">
+          <el-table-column label="类型" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="技术栈" min-width="110px" align="center">
+          <el-table-column label="单位" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="关联项目" min-width="110px" align="center">
+          <el-table-column label="角色" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="仓库地址" min-width="150px">
-            <template slot-scope="{row}">
-              <el-tag>{{ row.type | typeFilter }}</el-tag>
-              <span class="link-type" @click="handleUpdate(row)">{{ row.title }}</span>
+          <el-table-column label="来源" min-width="150px" align="center">
+            <template slot-scope="scope">
+              <span>{{ scope.row.author }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="状态" width="150px" align="center">
+            <template slot-scope="scope">
+              <span>{{ scope.row.author }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="项目" min-width="300px" align="center">
+            <template slot-scope="scope">
+              <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
           <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">

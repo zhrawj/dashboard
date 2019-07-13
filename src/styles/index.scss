@@ -191,3 +191,17 @@ aside {
 .multiselect--active {
   z-index: 1000 !important;
 }
+
+.search-row {
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.search-radius {
+  height: 110px;
+  width: 100%;
+  border: 1px solid #d7dae2;
+  border-radius: 0;
+  margin-bottom: 40px;
+}

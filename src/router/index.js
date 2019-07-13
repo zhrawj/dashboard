@@ -111,7 +111,7 @@ export const constantRoutes = [
       {
         path: 'device',
         name: 'Device',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/asset/device'),
         meta: { title: '设备列表', icon: 'server' }
       },
       {
