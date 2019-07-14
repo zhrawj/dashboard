@@ -277,8 +277,7 @@ export default {
       console.log(id)
       this.$router.push({
         name: 'DeviceDetail',
-        params: { id: id },
-        query: { id: id }
+        params: { id: id }
       })
     },
     getList() {
