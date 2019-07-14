@@ -5,6 +5,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
+import DeviceDetail from '@/views/asset/deviceDetail'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -98,21 +99,29 @@ export const constantRoutes = [
   {
     path: '/assets',
     component: Layout,
-    redirect: '/assets/device',
+    redirect: '/assets/devices',
     name: 'Asset',
     meta: { title: '资产管理', icon: 'assets' },
     children: [
       {
-        path: 'model',
-        name: 'Model',
+        path: 'models',
+        name: 'ModelList',
         component: () => import('@/views/asset/model'),
         meta: { title: '模型列表', icon: 'cubes' }
       },
       {
-        path: 'device',
-        name: 'Device',
-        component: () => import('@/views/asset/device'),
+        path: 'devices',
+        name: 'DeviceList',
+        component: () => import('@/views/asset/deviceList'),
         meta: { title: '设备列表', icon: 'server' }
+      },
+      {
+        path: 'devices/:id',
+        name: 'DeviceDetail',
+        component: DeviceDetail,
+        hidden: true,
+        props: true,
+        meta: { title: '设备详情' }
       },
       {
         path: 'alert',

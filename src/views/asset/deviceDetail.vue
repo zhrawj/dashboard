@@ -8,18 +8,11 @@
               <el-input v-model="listQuery.title" placeholder="名称" style="width: 150px; margi" class="filter-item" @keyup.enter.native="handleFilter" />
             </el-col>
             <el-col :span="6">
-              <el-input v-model="listQuery.title" placeholder="IP" style="width: 150px; margi" class="filter-item" @keyup.enter.native="handleFilter" />
-            </el-col>
-            <el-col :span="6">
-              <el-select v-model="listQuery.type" placeholder="模型" clearable class="filter-item" style="width: 150px">
-                <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-              </el-select>
-            </el-col>
-            <el-col :span="6">
               <el-select v-model="listQuery.type" placeholder="项目" clearable class="filter-item" style="width: 150px">
                 <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
               </el-select>
             </el-col>
+            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
           </el-row>
           <el-row type="flex" class="search-row" justify="space-between">
             <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
@@ -31,7 +24,6 @@
             </el-col>
           </el-row>
         </div>
-
         <div class="filter-container fl">
           <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-plus" @click="handleCreate">
             新建
@@ -39,12 +31,9 @@
           <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-delete" @click="handleCreate">
             删除
           </el-button>
-          <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-menu" @click="handleCreate">
-            部署代理
-          </el-button>
         </div>
         <div class="filter-container fr" style="margin-right: 15px;">
-          <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-upload" @click="handleDownload">
+          <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-upload2" @click="handleDownload">
             导入
           </el-button>
           <el-button v-waves :loading="downloadLoading" class="filter-item" type="info" icon="el-icon-download" @click="handleDownload">
@@ -70,57 +59,32 @@
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="IP" min-width="110px" align="center">
+          <el-table-column label="类型" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="模型" min-width="110px" align="center">
+          <el-table-column label="单位" min-width="110px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="项目" min-width="110px" align="center">
+          <el-table-column label="角色" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="创建人" min-width="110px" align="center">
+          <el-table-column label="来源" min-width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="CPU核数" min-width="110px" align="center">
+          <el-table-column label="状态" width="150px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="内存大小" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="系统盘" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="数据盘" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="发行版" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="状态" width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="持续时间" width="110px" align="center">
+          <el-table-column label="项目" min-width="300px" align="center">
             <template slot-scope="scope">
               <span>{{ scope.row.author }}</span>
             </template>
@@ -129,9 +93,6 @@
             <template slot-scope="{row}">
               <el-button type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
                 编辑
-              </el-button>
-              <el-button type="primary" size="mini" icon="el-icon-monitor" @click="handleUpdate(row)">
-                登录
               </el-button>
             </template>
           </el-table-column>
@@ -209,7 +170,7 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
 }, {})
 
 export default {
-  name: 'ComplexTable',
+  name: 'DeviceDetail',
   components: { Pagination },
   directives: { waves },
   filters: {
@@ -223,6 +184,12 @@ export default {
     },
     typeFilter(type) {
       return calendarTypeKeyValue[type]
+    }
+  },
+  props: {
+    id: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -270,6 +237,7 @@ export default {
     }
   },
   created() {
+    console.log('toid ' + this.id)
     this.getList()
   },
   methods: {
