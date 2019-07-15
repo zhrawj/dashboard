@@ -83,7 +83,7 @@
           </el-table-column>
           <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
             <template slot-scope="{row}">
-              <el-button type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
+              <el-button type="text" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
                 编辑
               </el-button>
             </template>

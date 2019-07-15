@@ -125,12 +125,13 @@
               <span>{{ scope.row.author }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" align="center" fixed="right" width="230" class-name="small-padding fixed-width">
+          <el-table-column label="操作" align="center" fixed="right" width="230" class-name="small-padding">
             <template slot-scope="{row}">
-              <el-button type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
+              <el-button type="text" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
                 编辑
               </el-button>
-              <el-button type="primary" size="mini" icon="el-icon-monitor" @click="handleUpdate(row)">
+              <el-divider direction="vertical" />
+              <el-button type="text" size="mini" icon="el-icon-monitor" @click="handleUpdate(row)">
                 登录
               </el-button>
             </template>
