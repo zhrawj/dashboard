@@ -2,15 +2,13 @@
   <div class="app-container">
     <el-row>
       <el-card class="box-card">
-        <div class="search-radius filter-container" style="border-radius: 4px;">
+        <div class="filter-container search-radius" style="border-radius: 4px;">
           <el-row type="flex" class="search-row" justify="space-between">
             <el-col :span="6">
-              <el-input v-model="listQuery.title" placeholder="名称" style="width: 150px; margi" class="filter-item" @keyup.enter.native="handleFilter" />
+              <span class="aside">ID: aaaa</span>
             </el-col>
             <el-col :span="6">
-              <el-select v-model="listQuery.type" placeholder="项目" clearable class="filter-item" style="width: 150px">
-                <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-              </el-select>
+              <span class="aside">名称: DB01</span>
             </el-col>
             <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
           </el-row>
@@ -18,9 +16,7 @@
             <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
             <el-col :span="6"><div class="grid-content bg-purple-light" /></el-col>
             <el-col :span="6">
-              <el-button v-waves class="filter-item fr" type="primary" icon="el-icon-search" @click="handleFilter">
-                搜索
-              </el-button>
+              <span>IP: 10.10.10.10</span>
             </el-col>
           </el-row>
         </div>
@@ -125,9 +121,10 @@
           <el-tab-pane label="硬件信息" name="second">配置管理</el-tab-pane>
           <el-tab-pane label="系统信息" name="second1">配置管理</el-tab-pane>
           <el-tab-pane label="运行指标" name="third">角色管理</el-tab-pane>
+          <el-tab-pane label="登录日志" name="six">登录日志</el-tab-pane>
           <el-tab-pane label="带外管理" name="fourth">带外管理</el-tab-pane>
           <el-tab-pane label="用户管理" name="five">用户管理</el-tab-pane>
-          <el-tab-pane label="登录日志" name="six">登录日志</el-tab-pane>
+
         </el-tabs>
 
       </el-card>
@@ -227,6 +224,9 @@ export default {
     this.getList()
   },
   methods: {
+    handleClick(tab, event) {
+      console.log(tab, event)
+    },
     getList() {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
