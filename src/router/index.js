@@ -124,9 +124,9 @@ export const constantRoutes = [
         meta: { title: '设备详情' }
       },
       {
-        path: 'alert',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        path: 'alerts',
+        name: 'AlertList',
+        component: () => import('@/views/asset/alertList'),
         meta: { title: '告警列表', icon: 'alert' }
       },
       {
