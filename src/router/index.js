@@ -131,26 +131,26 @@ export const constantRoutes = [
       },
       {
         path: 'loginRole',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        name: 'LoginRoleList',
+        component: () => import('@/views/asset/loginRoleList'),
         meta: { title: '登录角色', icon: 'role' }
       },
       {
         path: 'loginPolicy',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        name: 'LoginPolicyList',
+        component: () => import('@/views/asset/loginPolicyList'),
         meta: { title: '登录策略', icon: 'policy' }
       },
       {
-        path: 'loginAudit',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        path: 'sessions',
+        name: 'SessionList',
+        component: () => import('@/views/asset/sessionList'),
         meta: { title: '在线会话', icon: 'audit' }
       },
       {
-        path: 'loginHistory',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        path: 'replays',
+        name: 'ReplayList',
+        component: () => import('@/views/asset/replayList'),
         meta: { title: '历史会话', icon: 'replay' }
       }
     ]
