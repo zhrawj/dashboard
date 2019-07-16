@@ -1,26 +1,48 @@
 <template>
   <div class="app-container">
+    <!-- 第一行 -->
     <el-row>
       <el-card class="box-card">
-        <div class="filter-container search-radius" style="border-radius: 4px;">
+        <div class="filter-container body-text">
           <el-row type="flex" class="search-row" justify="space-between">
             <el-col :span="6">
-              <span class="aside">ID: aaaa</span>
+              <span>ID:</span> <span class="body-bolder">1e9d87d5-c021-4a60-bdb3-e105a545e1ae</span>
             </el-col>
             <el-col :span="6">
-              <span class="aside">名称: DB01</span>
+              <span>名称:</span> <span class="body-bolder">业务服务器01</span>
             </el-col>
-            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
+            <el-col :span="6">
+              <span>主机地址:</span> <span class="body-bolder">192.168.10.10</span>
+            </el-col>
           </el-row>
           <el-row type="flex" class="search-row" justify="space-between">
-            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple-light" /></el-col>
             <el-col :span="6">
-              <span>IP: 10.10.10.10</span>
+              <span>发行版本:</span> <span class="body-bolder">CentOS 7.4</span>
+            </el-col>
+            <el-col :span="6">
+              <span>状态:</span> <span class="body-bolder">online</span>
+            </el-col>
+            <el-col :span="6">
+              <span>持续时间:</span> <span class="body-bolder">1天</span>
+            </el-col>
+          </el-row>
+          <el-row type="flex" class="search-row" justify="space-between">
+            <el-col :span="6">
+              <span>设备模型:</span> <span class="body-bolder">物理服务器</span>
+            </el-col>
+            <el-col :span="6">
+              <span>项目:</span> <span class="body-bolder">xxxx业务</span>
+            </el-col>
+            <el-col :span="6">
+              <span>创建人:</span> <span class="body-bolder" style="margin-left: 23px">1天</span>
             </el-col>
           </el-row>
         </div>
-
+      </el-card>
+    </el-row>
+    <!-- 第二行 -->
+    <el-row style="margin-top: 24px;">
+      <el-card class="box-card">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="代理信息" name="first">
             <el-table

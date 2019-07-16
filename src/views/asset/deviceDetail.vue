@@ -1,150 +1,157 @@
 <template>
   <div class="app-container">
+    <!-- 第一行 -->
     <el-row>
       <el-card class="box-card">
-        <div class="search-radius filter-container" style="border-radius: 4px;">
+        <div class="filter-container body-text">
           <el-row type="flex" class="search-row" justify="space-between">
             <el-col :span="6">
-              <el-input v-model="listQuery.title" placeholder="名称" style="width: 150px; margi" class="filter-item" @keyup.enter.native="handleFilter" />
+              <span>名称:</span> <span class="body-bolder">业务服务器01</span>
             </el-col>
             <el-col :span="6">
-              <el-select v-model="listQuery.type" placeholder="项目" clearable class="filter-item" style="width: 150px">
-                <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-              </el-select>
+              <span>主机地址:</span> <span class="body-bolder">192.168.10.10</span>
             </el-col>
-            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
+            <el-col :span="6">
+              <span>主机ID:</span> <span class="body-bolder" style="margin-left: 23px">1e9d87d5-c021-4a60-bdb3-e105a545e1ae</span>
+            </el-col>
+            <el-col :span="6" />
           </el-row>
           <el-row type="flex" class="search-row" justify="space-between">
-            <el-col :span="6"><div class="grid-content bg-purple" /></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple-light" /></el-col>
             <el-col :span="6">
-              <el-button v-waves class="filter-item fr" type="primary" icon="el-icon-search" @click="handleFilter">
-                搜索
-              </el-button>
+              <span>状态:</span> <span class="body-bolder">online</span>
             </el-col>
+            <el-col :span="6">
+              <span>发行版本:</span> <span class="body-bolder">CentOS 7.4</span>
+            </el-col>
+            <el-col :span="6">
+              <span>持续时间:</span> <span class="body-bolder">38天15小时35分钟</span>
+            </el-col>
+            <el-col :span="6" />
+          </el-row>
+          <el-row type="flex" class="search-row" justify="space-between">
+            <el-col :span="6">
+              <span>项目:</span> <span class="body-bolder">xxxx业务</span>
+            </el-col>
+            <el-col :span="6">
+              <span>设备模型:</span> <span class="body-bolder">物理服务器</span>
+            </el-col>
+            <el-col :span="6">
+              <span>创建人:</span> <span class="body-bolder" style="margin-left: 23px">紫川秀</span>
+            </el-col>
+            <el-col :span="6" />
           </el-row>
         </div>
-        <div class="filter-container fl">
-          <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-plus" @click="handleCreate">
-            新建
-          </el-button>
-          <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-delete" @click="handleCreate">
-            删除
-          </el-button>
-        </div>
-        <div class="filter-container fr" style="margin-right: 15px;">
-          <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-upload2" @click="handleDownload">
-            导入
-          </el-button>
-          <el-button v-waves :loading="downloadLoading" class="filter-item" type="info" icon="el-icon-download" @click="handleDownload">
-            导出
-          </el-button>
-        </div>
-        <el-table
-          ref="multipleTable"
-          :key="tableKey"
-          v-loading="listLoading"
-          :data="list"
-          :header-cell-style="{background:'#f5f7fa'}"
-          fit
-          highlight-current-row
-          style="width: 100%;"
-          tooltip-effect="dark"
-          @sort-change="sortChange"
-          @selection-change="handleSelectionChange"
-        >
-          <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80" />
-          <el-table-column label="名称" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="类型" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="单位" min-width="110px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="角色" min-width="150px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="来源" min-width="150px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="状态" width="150px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="项目" min-width="300px" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.author }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
-            <template slot-scope="{row}">
-              <el-button type="text" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
-                编辑
-              </el-button>
-            </template>
-          </el-table-column>
-        </el-table>
+      </el-card>
+    </el-row>
+    <!-- 第二行 -->
+    <el-row style="margin-top: 12px;">
+      <el-card class="box-card">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="代理信息" name="first">
+            <el-table
+              ref="multipleTable"
+              :key="tableKey"
+              v-loading="listLoading"
+              :data="list"
+              :header-cell-style="{background:'#f5f7fa'}"
+              fit
+              highlight-current-row
+              style="width: 100%;"
+              tooltip-effect="dark"
+              @sort-change="sortChange"
+              @selection-change="handleSelectionChange"
+            >
+              <el-table-column label="ID" prop="id" sortable="custom" align="center" type="selection" width="80" />
+              <el-table-column label="名称" min-width="110px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="类型" min-width="110px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="单位" min-width="110px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="角色" min-width="150px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="来源" min-width="150px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="状态" width="150px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="项目" min-width="300px" align="center">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
+                <template slot-scope="{row}">
+                  <el-button type="text" size="mini" icon="el-icon-edit" @click="handleUpdate(row)">
+                    编辑
+                  </el-button>
+                </template>
+              </el-table-column>
+            </el-table>
 
-        <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+            <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
 
-        <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-          <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-            <el-form-item label="Type" prop="type">
-              <el-select v-model="temp.type" class="filter-item" placeholder="Please select">
-                <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name" :value="item.key" />
-              </el-select>
-            </el-form-item>
-            <el-form-item label="Date" prop="timestamp">
-              <el-date-picker v-model="temp.timestamp" type="datetime" placeholder="Please pick a date" />
-            </el-form-item>
-            <el-form-item label="Title" prop="title">
-              <el-input v-model="temp.title" />
-            </el-form-item>
-            <el-form-item label="Status">
-              <el-select v-model="temp.status" class="filter-item" placeholder="Please select">
-                <el-option v-for="item in statusOptions" :key="item" :label="item" :value="item" />
-              </el-select>
-            </el-form-item>
-            <el-form-item label="Imp">
-              <el-rate v-model="temp.importance" :colors="['#99A9BF', '#F7BA2A', '#FF9900']" :max="3" style="margin-top:8px;" />
-            </el-form-item>
-            <el-form-item label="Remark">
-              <el-input v-model="temp.remark" :autosize="{ minRows: 2, maxRows: 4}" type="textarea" placeholder="Please input" />
-            </el-form-item>
-          </el-form>
-          <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisible = false">
-              Cancel
-            </el-button>
-            <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
-              Confirm
-            </el-button>
-          </div>
-        </el-dialog>
+            <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
+              <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
+                <el-form-item label="Type" prop="type">
+                  <el-select v-model="temp.type" class="filter-item" placeholder="Please select">
+                    <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name" :value="item.key" />
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="Date" prop="timestamp">
+                  <el-date-picker v-model="temp.timestamp" type="datetime" placeholder="Please pick a date" />
+                </el-form-item>
+                <el-form-item label="Title" prop="title">
+                  <el-input v-model="temp.title" />
+                </el-form-item>
+                <el-form-item label="Status">
+                  <el-select v-model="temp.status" class="filter-item" placeholder="Please select">
+                    <el-option v-for="item in statusOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="Imp">
+                  <el-rate v-model="temp.importance" :colors="['#99A9BF', '#F7BA2A', '#FF9900']" :max="3" style="margin-top:8px;" />
+                </el-form-item>
+                <el-form-item label="Remark">
+                  <el-input v-model="temp.remark" :autosize="{ minRows: 2, maxRows: 4}" type="textarea" placeholder="Please input" />
+                </el-form-item>
+              </el-form>
+              <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">
+                  Cancel
+                </el-button>
+                <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
+                  Confirm
+                </el-button>
+              </div>
+            </el-dialog>
+          </el-tab-pane>
+          <el-tab-pane label="硬件信息" name="second">配置管理</el-tab-pane>
+          <el-tab-pane label="系统信息" name="second1">配置管理</el-tab-pane>
+          <el-tab-pane label="运行指标" name="third">角色管理</el-tab-pane>
+          <el-tab-pane label="审计日志" name="six">登录日志</el-tab-pane>
+          <el-tab-pane label="带外管理" name="fourth">带外管理</el-tab-pane>
+          <el-tab-pane label="用户管理" name="five">用户管理</el-tab-pane>
 
-        <el-dialog :visible.sync="dialogPvVisible" title="Reading statistics">
-          <el-table :data="pvData" border fit highlight-current-row style="width: 100%">
-            <el-table-column prop="key" label="Channel" />
-            <el-table-column prop="pv" label="Pv" />
-          </el-table>
-          <span slot="footer" class="dialog-footer">
-            <el-button type="primary" @click="dialogPvVisible = false">Confirm</el-button>
-          </span>
-        </el-dialog>
-        <!-- </div> -->
+        </el-tabs>
+
       </el-card>
     </el-row>
   </div>
@@ -194,6 +201,7 @@ export default {
   },
   data() {
     return {
+      activeName: 'second',
       tableKey: 0,
       list: null,
       total: 0,
@@ -241,6 +249,9 @@ export default {
     this.getList()
   },
   methods: {
+    handleClick(tab, event) {
+      console.log(tab, event)
+    },
     getList() {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {

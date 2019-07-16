@@ -351,6 +351,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/system-log',
+    component: Layout,
+    redirect: '/system-log/loginLogs',
+    name: 'Example',
+    meta: { title: '日志审计', icon: 'auditlog' },
+    children: [
+      {
+        path: 'loginLogs',
+        name: 'loginLogs',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '登录日志', icon: 'loginlog' }
+      },
+      {
+        path: 'operateLogs',
+        name: 'operateLogs',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '操作日志', icon: 'oplog' }
+      },
+    ]
+  },
+
+  {
     path: '/system-manage',
     component: Layout,
     redirect: '/system-manage/component',
