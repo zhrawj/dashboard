@@ -360,15 +360,15 @@ export const constantRoutes = [
       {
         path: 'loginLogs',
         name: 'loginLogs',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/audit/loginLog'),
         meta: { title: '登录日志', icon: 'loginlog' }
       },
       {
         path: 'operateLogs',
         name: 'operateLogs',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/audit/operateLog'),
         meta: { title: '操作日志', icon: 'oplog' }
-      },
+      }
     ]
   },
 
