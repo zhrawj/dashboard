@@ -53,8 +53,7 @@
           <el-tab-pane label="运行指标" name="third">角色管理</el-tab-pane>
           <el-tab-pane label="审计日志" name="six">登录日志</el-tab-pane>
           <el-tab-pane label="带外管理" name="fourth">带外管理</el-tab-pane>
-          <el-tab-pane label="用户管理" name="five"><device-user /></el-tab-pane>
-
+          <el-tab-pane label="登录用户" name="five"><device-user /></el-tab-pane>
         </el-tabs>
 
       </el-card>
@@ -71,13 +70,13 @@ export default {
   components: { AgentDetail, DeviceUser },
   props: {
     id: {
-      type: String,
+      type: Number,
       default: 0
     }
   },
   data() {
     return {
-      activeName: 'second'
+      activeName: 'first'
     }
   },
   created() {

@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div class="filter-container fl">
+      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-plus" @click="handleCreate">
+        新建
+      </el-button>
+      <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-delete" @click="handleCreate">
+        删除
+      </el-button>
+    </div>
     <el-table
       ref="multipleTable"
       :key="tableKey"
@@ -19,19 +27,9 @@
           <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="类型" min-width="110px" align="center">
+      <el-table-column label="角色" min-width="110px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="单位" min-width="110px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="角色" min-width="150px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
       <el-table-column label="来源" min-width="150px" align="center">
@@ -39,12 +37,12 @@
           <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="状态" width="150px" align="center">
+      <el-table-column label="状态" min-width="110px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="项目" min-width="300px" align="center">
+      <el-table-column label="创建时间" min-width="150px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>

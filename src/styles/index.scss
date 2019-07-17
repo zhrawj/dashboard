@@ -215,3 +215,9 @@ aside {
   font-weight: bolder;
   margin-left: 10px;
 }
+
+// 修改Card Header的样式
+.el-card__header {
+  background: #f0f2f5;
+  padding: 14px 8px;
+}
