@@ -388,13 +388,13 @@ export const constantRoutes = [
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/system/role'),
         meta: { title: '角色管理', icon: 'user' }
       },
       {
         path: 'rigion',
         name: 'Region',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/system/region'),
         meta: { title: '分区管理', icon: 'location' }
       }
     ]
