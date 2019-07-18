@@ -4,7 +4,7 @@
 
     <el-tree
       ref="tree2"
-      :icon-class="dns"
+      :icon-class="el-icon-folder"
       :data="data2"
       :props="defaultProps"
       :filter-node-method="filterNode"
