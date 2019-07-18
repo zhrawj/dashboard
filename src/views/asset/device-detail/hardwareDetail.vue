@@ -4,7 +4,22 @@
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span class="body-text body-bolder">基本信息</span>
+            <span class="body-text body-bolder">模块列表</span>
+          </div>
+          <el-tree
+            ref="tree2"
+            :data="data2"
+            :props="defaultProps"
+            class="filter-tree"
+            default-expand-all
+          />
+        </el-card>
+      </el-col>
+
+      <el-col :span="18">
+        <el-card class="box-card" shadow="hover">
+          <div slot="header" class="clearfix">
+            <span class="body-text body-bolder">模块详情</span>
           </div>
           <el-table
             ref="multipleTable"
@@ -29,17 +44,6 @@
           </el-table>
         </el-card>
       </el-col>
-
-      <el-col :span="18">
-        <el-card class="box-card" shadow="hover">
-          <div slot="header" class="clearfix">
-            <span class="body-text body-bolder">代理配置</span>
-          </div>
-          <div class="component-item">
-            <span class="body-text">等待更新</span>
-          </div>
-        </el-card>
-      </el-col>
     </el-row>
 
   </div>
@@ -49,7 +53,7 @@
 import { fetchList } from '@/api/article'
 
 export default {
-  name: 'AgentDeail',
+  name: 'HardwareDetail',
   data() {
     const validate = (rule, value, callback) => {
       if (value.length !== 6) {
@@ -66,8 +70,35 @@ export default {
         title: [{ required: true, trigger: 'change', validator: validate }]
       },
       tableKey: 0,
+      listLoading: true,
       list: null,
-      listLoading: true
+      defaultProps: {
+        children: 'children',
+        label: 'label'
+      },
+      data2: [{
+        id: 1,
+        label: '硬件模块',
+        children: [{
+          id: 2,
+          label: '系统'
+        }, {
+          id: 3,
+          label: '主板'
+        }, {
+          id: 4,
+          label: '处理器'
+        }, {
+          id: 5,
+          label: '内存'
+        }, {
+          id: 6,
+          label: '插槽'
+        }, {
+          id: 7,
+          label: '接口'
+        }]
+      }]
     }
   },
   created() {

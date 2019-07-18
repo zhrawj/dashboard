@@ -4,7 +4,6 @@
 
     <el-tree
       ref="tree2"
-      :icon-class="el-icon-folder"
       :data="data2"
       :props="defaultProps"
       :filter-node-method="filterNode"

@@ -276,9 +276,10 @@ export default {
   methods: {
     toDeail: function(id) {
       console.log(id)
+
       this.$router.push({
         name: 'DeviceDetail',
-        params: { id: id }
+        params: { id: parseInt(id) }
       })
     },
     getList() {
