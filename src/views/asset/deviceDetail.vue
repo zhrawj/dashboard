@@ -47,13 +47,13 @@
     <el-row style="margin-top: 12px;">
       <el-card class="box-card">
         <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="代理信息" name="first"> <agent-detail /> </el-tab-pane>
-          <el-tab-pane label="硬件信息" name="second">配置管理</el-tab-pane>
-          <el-tab-pane label="系统信息" name="second1">配置管理</el-tab-pane>
-          <el-tab-pane label="运行指标" name="third">角色管理</el-tab-pane>
-          <el-tab-pane label="审计日志" name="six">登录日志</el-tab-pane>
-          <el-tab-pane label="带外管理" name="fourth">带外管理</el-tab-pane>
-          <el-tab-pane label="登录用户" name="five"><device-user /></el-tab-pane>
+          <el-tab-pane label="代理信息" name="first" lazy="true"> <agent-detail /> </el-tab-pane>
+          <el-tab-pane label="硬件信息" name="second" lazy="true">配置管理</el-tab-pane>
+          <el-tab-pane label="系统信息" name="second1" lazy="true">配置管理</el-tab-pane>
+          <el-tab-pane label="运行指标" name="third" lazy="true">角色管理</el-tab-pane>
+          <el-tab-pane label="审计日志" name="six" lazy="true">登录日志</el-tab-pane>
+          <el-tab-pane label="带外管理" name="fourth" lazy="true">带外管理</el-tab-pane>
+          <el-tab-pane label="登录用户" name="five" lazy="true"><device-user /></el-tab-pane>
         </el-tabs>
 
       </el-card>
