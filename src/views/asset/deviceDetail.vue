@@ -49,9 +49,9 @@
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="代理信息" name="first" :lazy="true"> <agent-detail /> </el-tab-pane>
           <el-tab-pane label="硬件信息" name="second" :lazy="true"> <hardware-detail /> </el-tab-pane>
-          <el-tab-pane label="系统信息" name="second1" :lazy="true">配置管理</el-tab-pane>
-          <el-tab-pane label="运行指标" name="third" :lazy="true">角色管理</el-tab-pane>
+          <el-tab-pane label="系统信息" name="second1" :lazy="true"> <system-detail /> </el-tab-pane>
           <el-tab-pane label="审计日志" name="six" :lazy="true">登录日志</el-tab-pane>
+          <el-tab-pane label="运行指标" name="third" :lazy="true">角色管理</el-tab-pane>
           <el-tab-pane label="带外管理" name="fourth" :lazy="true">带外管理</el-tab-pane>
           <el-tab-pane label="登录用户" name="five" :lazy="true"><device-user /></el-tab-pane>
         </el-tabs>
@@ -65,10 +65,11 @@
 import AgentDetail from './device-detail/agentDetail'
 import DeviceUser from './device-detail/userList'
 import HardwareDetail from './device-detail/hardwareDetail'
+import SystemDetail from './device-detail/systemDetail'
 
 export default {
   name: 'DeviceDetail',
-  components: { AgentDetail, HardwareDetail, DeviceUser },
+  components: { AgentDetail, HardwareDetail, SystemDetail, DeviceUser },
   props: {
     id: {
       type: Number,
