@@ -17,44 +17,55 @@
       </el-col>
 
       <el-col :span="20">
-        <el-card class="box-card" shadow="hover">
-          <div slot="header" class="clearfix">
-            <span class="body-text body-bolder">历史趋势</span>
-          </div>
+        <el-row>
+          <el-card class="box-card" shadow="hover">
+            <div slot="header" class="clearfix">
+              <span class="body-text body-bolder">历史趋势</span>
+            </div>
 
-          <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-            <line-chart :chart-data="lineChartData" />
-          </el-row>
+            <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+              <line-chart :chart-data="lineChartData" />
+            </el-row>
+          </el-card>
+        </el-row>
 
-          <el-table
-            ref="multipleTable"
-            :key="tableKey"
-            v-loading="listLoading"
-            :data="list"
-            fit
-            :show-header="true"
-            :header-cell-style="{background:'#f5f7fa'}"
-            highlight-current-row
-            style="width: 100%;"
-          >
-            <el-table-column label="时间" min-width="60px" align="left">
-              <template slot-scope="scope">
-                <span>{{ scope.row.author }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column label="名称" min-width="150px" align="left">
-              <template slot-scope="scope">
-                <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column label="描述" min-width="230px">
-              <template slot-scope="{row}">
-                <span class="link-type" @click="handleUpdate(row)">{{ row.title }}</span>
-                <el-tag>{{ row.type | typeFilter }}</el-tag>
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-card>
+        <el-row style="margin-top:10px;">
+          <el-card class="box-card" shadow="hover">
+            <div slot="header" class="clearfix">
+              <div class="fl">
+                <span class="body-text body-bolder">历史事件</span>
+              </div>
+            </div>
+            <el-table
+              ref="multipleTable"
+              :key="tableKey"
+              v-loading="listLoading"
+              :data="list"
+              fit
+              :show-header="true"
+              highlight-current-row
+              style="width: 100%;"
+            >
+              <el-table-column label="时间" min-width="60px" align="left">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="等级" min-width="60px" align="left">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.author }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="描述" min-width="230px">
+                <template slot-scope="{row}">
+                  <span class="link-type" @click="handleUpdate(row)">{{ row.title }}</span>
+                  <el-tag>{{ row.type | typeFilter }}</el-tag>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-card>
+        </el-row>
+
       </el-col>
     </el-row>
 
