@@ -53,7 +53,7 @@
 import { fetchList } from '@/api/article'
 
 export default {
-  name: 'SystemDetail',
+  name: 'AuditLogDetail',
   data() {
     const validate = (rule, value, callback) => {
       if (value.length !== 6) {
@@ -78,19 +78,19 @@ export default {
       },
       data2: [{
         id: 1,
-        label: '系统模块',
+        label: '日志模块',
         children: [{
           id: 2,
-          label: '操作系统'
+          label: '登录审计'
         }, {
           id: 3,
-          label: '安装软件'
+          label: '账户审计'
         }, {
           id: 4,
-          label: '监听端口'
+          label: '命令审计'
         }, {
           id: 5,
-          label: '运行进程'
+          label: '文件审计'
         }]
       }]
     }

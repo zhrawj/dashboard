@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row :gutter="20" style="margin-top:18px;">
-      <el-col :span="6">
+      <el-col :span="4">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span class="body-text body-bolder">模块列表</span>
@@ -16,7 +16,7 @@
         </el-card>
       </el-col>
 
-      <el-col :span="18">
+      <el-col :span="20">
         <el-card class="box-card" shadow="hover">
           <div slot="header" class="clearfix">
             <span class="body-text body-bolder">模块详情</span>
